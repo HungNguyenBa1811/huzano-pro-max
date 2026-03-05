@@ -65,24 +65,123 @@ function router() {
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
 
+// VALIDATION HELPERS
+function showError(input, message) {
+    input.classList.add('input-error');
+    let errorEl = input.parentElement.querySelector('.form-error');
+    if (!errorEl) {
+        errorEl = document.createElement('span');
+        errorEl.className = 'form-error';
+        input.parentElement.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+    errorEl.style.display = 'block';
+}
+
+function clearError(input) {
+    input.classList.remove('input-error');
+    const errorEl = input.parentElement.querySelector('.form-error');
+    if (errorEl) errorEl.style.display = 'none';
+}
+
+function clearAllErrors(form) {
+    form.querySelectorAll('.input-error').forEach((el) => el.classList.remove('input-error'));
+    form.querySelectorAll('.form-error').forEach((el) => (el.style.display = 'none'));
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 // PAGE INIT
 function initPage(path) {
     if (path === '/login') {
-        document.getElementById('form-login').addEventListener('submit', function (e) {
+        const form = document.getElementById('form-login');
+        const inputs = form.querySelectorAll('input');
+        const [usernameInput, passwordInput] = inputs;
+
+        inputs.forEach((input) => input.addEventListener('input', () => clearError(input)));
+
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            location.hash = '#/home';
+            clearAllErrors(form);
+            let valid = true;
+
+            if (!usernameInput.value.trim()) {
+                showError(usernameInput, 'Vui lòng nhập tên đăng nhập');
+                valid = false;
+            }
+            if (!passwordInput.value) {
+                showError(passwordInput, 'Vui lòng nhập mật khẩu');
+                valid = false;
+            }
+
+            if (valid) location.hash = '#/home';
         });
     }
     if (path === '/register') {
-        document.getElementById('form-register').addEventListener('submit', function (e) {
+        const form = document.getElementById('form-register');
+        const inputs = form.querySelectorAll('input');
+        const [nameInput, emailInput, passwordInput, confirmInput] = inputs;
+
+        inputs.forEach((input) => input.addEventListener('input', () => clearError(input)));
+
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            location.hash = '#/home';
+            clearAllErrors(form);
+            let valid = true;
+
+            if (!nameInput.value.trim()) {
+                showError(nameInput, 'Vui lòng nhập tên người dùng');
+                valid = false;
+            }
+            if (!emailInput.value.trim()) {
+                showError(emailInput, 'Vui lòng nhập email');
+                valid = false;
+            } else if (!isValidEmail(emailInput.value.trim())) {
+                showError(emailInput, 'Email không hợp lệ');
+                valid = false;
+            }
+            if (!passwordInput.value) {
+                showError(passwordInput, 'Vui lòng nhập mật khẩu');
+                valid = false;
+            } else if (passwordInput.value.length < 6) {
+                showError(passwordInput, 'Mật khẩu phải có ít nhất 6 ký tự');
+                valid = false;
+            }
+            if (!confirmInput.value) {
+                showError(confirmInput, 'Vui lòng xác nhận mật khẩu');
+                valid = false;
+            } else if (confirmInput.value !== passwordInput.value) {
+                showError(confirmInput, 'Mật khẩu xác nhận không khớp');
+                valid = false;
+            }
+
+            if (valid) location.hash = '#/home';
         });
     }
     if (path === '/admin/login') {
-        document.getElementById('form-admin-login').addEventListener('submit', function (e) {
+        const form = document.getElementById('form-admin-login');
+        const inputs = form.querySelectorAll('input');
+        const [usernameInput, passwordInput] = inputs;
+
+        inputs.forEach((input) => input.addEventListener('input', () => clearError(input)));
+
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            location.hash = '#/admin/exams';
+            clearAllErrors(form);
+            let valid = true;
+
+            if (!usernameInput.value.trim()) {
+                showError(usernameInput, 'Vui lòng nhập tên đăng nhập');
+                valid = false;
+            }
+            if (!passwordInput.value) {
+                showError(passwordInput, 'Vui lòng nhập mật khẩu');
+                valid = false;
+            }
+
+            if (valid) location.hash = '#/admin/exams';
         });
     }
     if (path === '/exam') {
