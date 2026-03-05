@@ -4,87 +4,101 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>HuZaLo - Hệ thống thi trực tuyến</title>
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
-        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" />
     </head>
     <body>
         <div id="app"></div>
 
         <!-- ================================================================
-  TEMPLATES
-================================================================ -->
+            TEMPLATES
+        ================================================================ -->
 
-        <!-- ① ĐĂNG NHẬP -->
+        <!-- ĐĂNG NHẬP -->
         <template id="tpl-login">
             <header>
-                <span>HuZaLo</span>
-                <span>Hệ thống thi trực tuyến</span>
+                <div class="header-title">
+                    <span>HuZaLo</span>
+                    <span>-</span>
+                    <span>Hệ thống thi trực tuyến</span>
+                </div>
             </header>
-            <main>
+            <main class="login-wrapper">
                 <h2>Đăng nhập</h2>
-                <form id="form-login">
-                    <div>
+                <form id="form-login" class="form-wrapper">
+                    <div class="form-input">
                         <label>Tên đăng nhập</label>
                         <input type="text" placeholder="Nhập tên đăng nhập" />
                     </div>
-                    <div>
+                    <div class="form-input">
                         <label>Mật khẩu</label>
                         <input type="password" placeholder="Nhập mật khẩu" />
                     </div>
-                    <button type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+                    <button type="submit" class="form-button"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+                    <div class="form-links">
+                        <p><a href="#/register">Chưa có tài khoản? Đăng ký</a></p>
+                        <p><a href="#/admin/login">Đăng nhập Admin</a></p>
+                    </div>
                 </form>
-                <p><a href="#/register">Chưa có tài khoản? Đăng ký</a></p>
-                <p><a href="#/admin/login">Đăng nhập Admin</a></p>
             </main>
         </template>
 
-        <!-- ② ĐĂNG KÝ -->
+        <!-- ĐĂNG KÝ -->
         <template id="tpl-register">
-            <header>
-                <span>HuZaLo</span>
-                <span>Hệ thống thi trực tuyến</span>
+            <header class="header-auth">
+                <div class="header-title">
+                    <span>HuZaLo</span>
+                    <span>-</span>
+                    <span>Hệ thống thi trực tuyến</span>
+                </div>
             </header>
-            <main>
+            <main class="login-wrapper">
                 <h2>Đăng ký tài khoản</h2>
-                <form id="form-register">
-                    <div>
+                <form id="form-register" class="form-wrapper">
+                    <div class="form-input">
                         <label>Tên người dùng</label>
                         <input type="text" placeholder="Nhập tên người dùng" />
                     </div>
-                    <div>
+                    <div class="form-input">
                         <label>Email</label>
                         <input type="email" placeholder="Nhập email sinh viên" />
                     </div>
-                    <div>
+                    <div class="form-input">
                         <label>Mật khẩu</label>
                         <input type="password" placeholder="Nhập mật khẩu" />
                     </div>
-                    <div>
+                    <div class="form-input">
                         <label>Xác nhận mật khẩu</label>
                         <input type="password" placeholder="Nhập lại mật khẩu" />
                     </div>
-                    <button type="submit"><i class="fas fa-user-plus"></i> Đăng ký</button>
+                    <button type="submit" class="form-button"><i class="fas fa-user-plus"></i> Đăng ký</button>
+                    <div class="form-links">
+                        <p><a href="#/login">Đã có tài khoản? Đăng nhập</a></p>
+                    </div>
                 </form>
-                <p><a href="#/login">Đã có tài khoản? Đăng nhập</a></p>
             </main>
         </template>
 
-        <!-- ③ TRANG CHÍNH -->
+        <!-- TRANG CHÍNH -->
         <template id="tpl-home">
-            <header>
-                <div>
+            <header class="header-auth">
+                <div class="header-title">
                     <span>HuZaLo</span>
+                    <span>-</span>
                     <span>Hệ thống thi trực tuyến</span>
                 </div>
-                <div>
+                <div class="header-info">
                     <span>Nguyễn Văn An</span>
-                    <a href="#/login"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    <a href="#/login">[Đăng xuất]</a>
                 </div>
             </header>
-            <main>
+            <main class="home-wrapper">
                 <h2>Danh sách kỳ thi</h2>
-                <div id="home-filter">
-                    <input type="text" placeholder="Tìm kiếm kỳ thi..." />
+                <div id="home-filter" class="filter-wrapper">
+                    <div class="search-box">
+                        <label for="student-search"><i class="fas fa-search"></i></label>
+                        <input type="text" name="student-search" placeholder="Tìm kiếm kỳ thi..." />
+                    </div>
                     <select>
                         <option value="">-- Tất cả loại --</option>
                         <option>Luyện tập</option>
@@ -97,9 +111,8 @@
                         <option>Theo lịch</option>
                         <option>Đã đóng</option>
                     </select>
-                    <button><i class="fas fa-search"></i> Tìm</button>
                 </div>
-                <table>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -161,21 +174,22 @@
                             <td>30</td>
                             <td>45</td>
                             <td>Theo lịch</td>
-                            <td><span>01/04/2025 07:00</span></td>
+                            <td><span>Đã đóng</span></td>
                         </tr>
                     </tbody>
                 </table>
             </main>
         </template>
 
-        <!-- ④ TRANG BÀI THI -->
+        <!-- TRANG BÀI THI -->
         <template id="tpl-exam">
-            <header>
-                <div>
+            <header class="header-auth">
+                <div class="header-title">
                     <span>HuZaLo</span>
+                    <span>-</span>
                     <span>Luyện tập Mạng máy tính</span>
                 </div>
-                <div>
+                <div class="header-info">
                     <i class="fas fa-clock"></i>
                     <span id="exam-timer">30:00</span>
                 </div>
@@ -269,16 +283,16 @@
                     <aside id="exam-sidebar">
                         <h4>Bảng câu hỏi</h4>
                         <div id="exam-nav">
-                            <button onclick="document.getElementById('q1').scrollIntoView()">1</button>
-                            <button onclick="document.getElementById('q2').scrollIntoView()">2</button>
-                            <button onclick="document.getElementById('q3').scrollIntoView()">3</button>
-                            <button onclick="document.getElementById('q4').scrollIntoView()">4</button>
-                            <button onclick="document.getElementById('q5').scrollIntoView()">5</button>
-                            <button onclick="document.getElementById('q6').scrollIntoView()">6</button>
-                            <button onclick="document.getElementById('q7').scrollIntoView()">7</button>
-                            <button onclick="document.getElementById('q8').scrollIntoView()">8</button>
-                            <button onclick="document.getElementById('q9').scrollIntoView()">9</button>
-                            <button onclick="document.getElementById('q10').scrollIntoView()">10</button>
+                            <button data-q="q1">1</button>
+                            <button data-q="q2">2</button>
+                            <button data-q="q3">3</button>
+                            <button data-q="q4">4</button>
+                            <button data-q="q5">5</button>
+                            <button data-q="q6">6</button>
+                            <button data-q="q7">7</button>
+                            <button data-q="q8">8</button>
+                            <button data-q="q9">9</button>
+                            <button data-q="q10">10</button>
                         </div>
                         <p>Đã làm: <span id="exam-done">0</span> / 10</p>
                     </aside>
@@ -286,36 +300,41 @@
             </main>
 
             <dialog id="dialog-confirm">
-                <h3>Xác nhận nộp bài</h3>
-                <p>Bạn có chắc muốn nộp bài không?</p>
-                <button id="btn-do-submit"><i class="fas fa-check"></i> Nộp bài</button>
-                <button id="btn-cancel-submit"><i class="fas fa-times"></i> Tiếp tục làm</button>
+                <div class="dialog-wrapper">
+                    <h3>Xác nhận nộp bài</h3>
+                    <p>Bạn có chắc muốn nộp bài không?</p>
+                    <button id="btn-do-submit" class="btn-primary"><i class="fas fa-check"></i> Nộp bài</button>
+                    <button id="btn-cancel-submit" class="btn-secondary"><i class="fas fa-times"></i> Tiếp tục làm</button>
+                </div>
             </dialog>
 
             <dialog id="dialog-timeout">
-                <h3><i class="fas fa-clock"></i> Hết giờ!</h3>
-                <p>Bài thi đã được tự động nộp.</p>
-                <a href="#/result"
-                    ><button><i class="fas fa-chart-bar"></i> Xem kết quả</button></a
-                >
+                <div class="dialog-wrapper">
+                    <h3><i class="fas fa-clock"></i> Hết giờ!</h3>
+                    <p>Bài thi đã được tự động nộp.</p>
+                    <a href="#/result"
+                        ><button class="btn-primary"><i class="fas fa-chart-bar"></i> Xem kết quả</button></a
+                    >
+                </div>
             </dialog>
         </template>
 
-        <!-- ⑤ KẾT QUẢ -->
+        <!-- KẾT QUẢ -->
         <template id="tpl-result">
-            <header>
-                <div>
+            <header class="header-auth">
+                <div class="header-title">
                     <span>HuZaLo</span>
+                    <span>-</span>
                     <span>Kết quả bài thi</span>
                 </div>
-                <div>
+                <div class="header-info">
                     <span>Nguyễn Văn An</span>
-                    <a href="#/home"><i class="fas fa-home"></i> Về trang chính</a>
+                    <a href="#/home"><i class="fas fa-home"></i> Trang chủ</a>
                 </div>
             </header>
-            <main>
+            <main class="home-wrapper">
                 <h2>Kết quả: Luyện tập Mạng máy tính</h2>
-                <table id="result-summary">
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>Câu đúng</th>
@@ -334,8 +353,8 @@
                     </tbody>
                 </table>
 
-                <h3>Chi tiết câu trả lời</h3>
-                <table id="result-detail">
+                <h3 style="margin-top: 2rem;">Chi tiết câu trả lời</h3>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>Câu</th>
@@ -346,70 +365,70 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="table-correct">
                             <td>1</td>
                             <td>Giao thức nào hoạt động ở tầng Transport?</td>
                             <td>B. TCP</td>
                             <td>B. TCP</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>2</td>
                             <td>Địa chỉ IPv4 có bao nhiêu bit?</td>
                             <td>B. 32 bit</td>
                             <td>B. 32 bit</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-wrong">
                             <td>3</td>
                             <td>DNS là viết tắt của?</td>
                             <td>A. Data Network System</td>
                             <td>B. Domain Name System</td>
                             <td><i class="fas fa-times-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>4</td>
                             <td>Cổng mặc định của HTTP là?</td>
                             <td>C. 80</td>
                             <td>C. 80</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>5</td>
                             <td>Mô hình OSI có bao nhiêu tầng?</td>
                             <td>D. 7</td>
                             <td>D. 7</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>6</td>
                             <td>Subnet mask mặc định của lớp C là?</td>
                             <td>C. 255.255.255.0</td>
                             <td>C. 255.255.255.0</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>7</td>
                             <td>Địa chỉ loopback của IPv4 là?</td>
                             <td>B. 127.0.0.1</td>
                             <td>B. 127.0.0.1</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-wrong">
                             <td>8</td>
                             <td>Giao thức ARP dùng để làm gì?</td>
                             <td>A. Phân giải tên miền</td>
                             <td>B. Ánh xạ IP sang MAC</td>
                             <td><i class="fas fa-times-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>9</td>
                             <td>Giao thức nào dùng để gửi email?</td>
                             <td>C. SMTP</td>
                             <td>C. SMTP</td>
                             <td><i class="fas fa-check-circle"></i></td>
                         </tr>
-                        <tr>
+                        <tr class="table-correct">
                             <td>10</td>
                             <td>HTTP/2 cải tiến gì so với HTTP/1.1?</td>
                             <td>D. Tất cả đáp án trên</td>
@@ -421,30 +440,35 @@
             </main>
         </template>
 
-        <!-- ⑥ ADMIN ĐĂNG NHẬP -->
+        <!-- ADMIN ĐĂNG NHẬP -->
         <template id="tpl-admin-login">
             <header>
-                <span>HuZaLo</span>
-                <span>Quản trị hệ thống</span>
+                <div class="header-title">
+                    <span>HuZaLo</span>
+                    <span>-</span>
+                    <span>Quản trị hệ thống</span>
+                </div>
             </header>
-            <main>
+            <main class="login-wrapper">
                 <h2><i class="fas fa-user-shield"></i> Đăng nhập Admin</h2>
-                <form id="form-admin-login">
-                    <div>
+                <form id="form-admin-login" class="form-wrapper">
+                    <div class="form-input">
                         <label>Tên đăng nhập</label>
                         <input type="text" placeholder="Nhập tên đăng nhập" />
                     </div>
-                    <div>
+                    <div class="form-input">
                         <label>Mật khẩu</label>
                         <input type="password" placeholder="Nhập mật khẩu" />
                     </div>
-                    <button type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+                    <button type="submit" class="form-button"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+                    <div class="form-links">
+                        <p><a href="#/login">Đăng nhập sinh viên</a></p>
+                    </div>
                 </form>
-                <p><a href="#/login">Đăng nhập sinh viên</a></p>
             </main>
         </template>
 
-        <!-- ADMIN SHELL (sidebar + topbar) -->
+        <!-- ADMIN SHELL -->
         <template id="tpl-admin-shell">
             <div id="admin-wrap">
                 <nav id="admin-sidebar">
@@ -480,7 +504,7 @@
             </div>
         </template>
 
-        <!-- ⑦ ADMIN DASHBOARD (nội dung) -->
+        <!-- ADMIN DASHBOARD -->
         <template id="tpl-admin-dashboard">
             <div id="dashboard-cards">
                 <div>
@@ -595,7 +619,7 @@
             </section>
         </template>
 
-        <!-- ⑧ ADMIN QUẢN LÝ SINH VIÊN (nội dung) -->
+        <!-- ADMIN QUẢN LÝ SINH VIÊN -->
         <template id="tpl-admin-users">
             <section>
                 <div>
@@ -668,7 +692,7 @@
             </section>
         </template>
 
-        <!-- ⑨ ADMIN TẠO/SỬA KỲ THI (nội dung) -->
+        <!-- ADMIN TẠO/SỬA KỲ THI -->
         <template id="tpl-admin-exam-edit">
             <div>
                 <h2 id="exam-form-heading">Tạo kỳ thi mới</h2>
@@ -820,7 +844,7 @@
             </div>
         </template>
 
-        <!-- ⑩ ADMIN THỐNG KÊ (nội dung) -->
+        <!-- ADMIN THỐNG KÊ -->
         <template id="tpl-admin-stats">
             <div>
                 <h2>Thống kê</h2>
@@ -907,13 +931,12 @@
             </div>
         </template>
 
-        <!-- ⑪ ADMIN KẾT QUẢ SINH VIÊN (nội dung) -->
+        <!-- ADMIN KẾT QUẢ SINH VIÊN -->
         <template id="tpl-admin-student-results">
             <div>
                 <h2>Kết quả sinh viên</h2>
                 <div id="student-search">
                     <input type="text" id="inp-student-search" placeholder="Tìm theo tên hoặc mã SV..." />
-                    <button><i class="fas fa-search"></i> Tìm</button>
                     <button><i class="fas fa-file-export"></i> Xuất báo cáo</button>
                 </div>
                 <table>
@@ -1033,299 +1056,6 @@
             </div>
         </template>
 
-        <!-- ================================================================
-  JAVASCRIPT
-================================================================ -->
-        <script>
-            // ── ROUTER ──────────────────────────────────────────────────────
-
-            var examTimer = null;
-
-            var adminRoutes = {
-                '/admin/dashboard': { tpl: 'tpl-admin-dashboard', nav: 'dashboard', title: 'Dashboard' },
-                '/admin/exams': { tpl: 'tpl-admin-dashboard', nav: 'exams', title: 'Quản lý kỳ thi' },
-                '/admin/users': { tpl: 'tpl-admin-users', nav: 'users', title: 'Quản lý sinh viên' },
-                '/admin/exam/new': { tpl: 'tpl-admin-exam-edit', nav: 'exams', title: 'Tạo kỳ thi mới' },
-                '/admin/exam/edit': { tpl: 'tpl-admin-exam-edit', nav: 'exams', title: 'Chỉnh sửa kỳ thi' },
-                '/admin/stats': { tpl: 'tpl-admin-stats', nav: 'stats', title: 'Thống kê' },
-                '/admin/student-results': {
-                    tpl: 'tpl-admin-student-results',
-                    nav: 'student-results',
-                    title: 'Kết quả sinh viên',
-                },
-            };
-
-            function router() {
-                if (examTimer) {
-                    clearInterval(examTimer);
-                    examTimer = null;
-                }
-
-                var path = location.hash.slice(1) || '/login';
-                var app = document.getElementById('app');
-
-                // Admin pages
-                if (adminRoutes[path]) {
-                    var cfg = adminRoutes[path];
-                    renderTemplate('tpl-admin-shell', app);
-                    document.getElementById('topbar-title').textContent = cfg.title;
-                    // Active sidebar
-                    document.querySelectorAll('#admin-sidebar li').forEach(function (li) {
-                        li.removeAttribute('data-active');
-                        if (li.dataset.nav === cfg.nav) li.setAttribute('data-active', '');
-                    });
-                    renderTemplate(cfg.tpl, document.getElementById('admin-content'));
-                    initAdminPage(path);
-                    return;
-                }
-
-                // User pages
-                var pageMap = {
-                    '/login': 'tpl-login',
-                    '/register': 'tpl-register',
-                    '/home': 'tpl-home',
-                    '/exam': 'tpl-exam',
-                    '/result': 'tpl-result',
-                    '/admin/login': 'tpl-admin-login',
-                };
-
-                var tplId = pageMap[path];
-                if (tplId) {
-                    renderTemplate(tplId, app);
-                    initPage(path);
-                } else {
-                    location.hash = '#/login';
-                }
-            }
-
-            function renderTemplate(tplId, target) {
-                var tpl = document.getElementById(tplId);
-                target.innerHTML = '';
-                target.appendChild(tpl.content.cloneNode(true));
-            }
-
-            window.addEventListener('hashchange', router);
-            window.addEventListener('DOMContentLoaded', router);
-
-            // ── PAGE INIT (user pages) ──────────────────────────────────────
-
-            function initPage(path) {
-                if (path === '/login') {
-                    document.getElementById('form-login').addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        location.hash = '#/home';
-                    });
-                }
-
-                if (path === '/register') {
-                    document.getElementById('form-register').addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        location.hash = '#/home';
-                    });
-                }
-
-                if (path === '/admin/login') {
-                    document.getElementById('form-admin-login').addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        location.hash = '#/admin/dashboard';
-                    });
-                }
-
-                if (path === '/exam') {
-                    initExam();
-                }
-            }
-
-            // ── EXAM TIMER ──────────────────────────────────────────────────
-
-            function initExam() {
-                var seconds = 30 * 60; // 30 phút
-
-                function tick() {
-                    var m = Math.floor(seconds / 60)
-                        .toString()
-                        .padStart(2, '0');
-                    var s = (seconds % 60).toString().padStart(2, '0');
-                    var el = document.getElementById('exam-timer');
-                    if (el) el.textContent = m + ':' + s;
-                    if (seconds <= 0) {
-                        clearInterval(examTimer);
-                        examTimer = null;
-                        var dlg = document.getElementById('dialog-timeout');
-                        if (dlg) dlg.showModal();
-                    }
-                    seconds--;
-                }
-
-                tick();
-                examTimer = setInterval(tick, 1000);
-
-                // Submit button
-                var btnSubmit = document.getElementById('btn-submit-exam');
-                if (btnSubmit) {
-                    btnSubmit.addEventListener('click', function () {
-                        document.getElementById('dialog-confirm').showModal();
-                    });
-                }
-
-                var btnDoSubmit = document.getElementById('btn-do-submit');
-                if (btnDoSubmit) {
-                    btnDoSubmit.addEventListener('click', function () {
-                        clearInterval(examTimer);
-                        examTimer = null;
-                        location.hash = '#/result';
-                    });
-                }
-
-                var btnCancel = document.getElementById('btn-cancel-submit');
-                if (btnCancel) {
-                    btnCancel.addEventListener('click', function () {
-                        document.getElementById('dialog-confirm').close();
-                    });
-                }
-
-                // Count answered
-                document.querySelectorAll('#exam-questions input[type=radio]').forEach(function (radio) {
-                    radio.addEventListener('change', function () {
-                        var answered = document.querySelectorAll('#exam-questions input[type=radio]:checked').length;
-                        // Each question has a unique name, so count unique names answered
-                        var names = new Set();
-                        document.querySelectorAll('#exam-questions input[type=radio]:checked').forEach(function (r) {
-                            names.add(r.name);
-                        });
-                        var el = document.getElementById('exam-done');
-                        if (el) el.textContent = names.size;
-                    });
-                });
-            }
-
-            // ── ADMIN PAGE INIT ─────────────────────────────────────────────
-
-            function initAdminPage(path) {
-                if (path === '/admin/stats') {
-                    initStatsChart();
-                    var btnExport = document.getElementById('btn-export-stats');
-                    if (btnExport)
-                        btnExport.addEventListener('click', function () {
-                            alert('Xuất báo cáo (demo)');
-                        });
-                }
-
-                if (path === '/admin/exam/new' || path === '/admin/exam/edit') {
-                    initExamEditPage();
-                }
-
-                if (path === '/admin/student-results') {
-                    initStudentResults();
-                }
-
-                if (path === '/admin/dashboard' || path === '/admin/exams') {
-                    var btnNew = document.querySelector('a[href="#/admin/exam/new"] button');
-                    // already uses href link, no extra JS needed
-                }
-            }
-
-            // ── EXAM EDIT PAGE ──────────────────────────────────────────────
-
-            function initExamEditPage() {
-                // Toggle schedule fields
-                var accessEl = document.getElementById('fe-access');
-                var scheduleEl = document.getElementById('fe-schedule');
-                if (accessEl && scheduleEl) {
-                    accessEl.addEventListener('change', function () {
-                        scheduleEl.style.display = this.value === 'scheduled' ? '' : 'none';
-                    });
-                }
-
-                // Add question (stub - just alerts for demo)
-                var btnAddQ = document.getElementById('btn-add-q');
-                if (btnAddQ) {
-                    btnAddQ.addEventListener('click', function () {
-                        alert('Thêm câu hỏi mới (demo - tự implement)');
-                    });
-                }
-
-                // Submit form
-                var form = document.getElementById('form-exam-edit');
-                if (form) {
-                    form.addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        alert('Đã lưu kỳ thi! (demo)');
-                        location.hash = '#/admin/dashboard';
-                    });
-                }
-            }
-
-            // ── STATS CHART ─────────────────────────────────────────────────
-
-            function initStatsChart() {
-                var canvas = document.getElementById('chart-scores');
-                if (!canvas) return;
-                var ctx = canvas.getContext('2d');
-
-                // Mock: số SV đạt điểm theo khoảng (0-1, 1-2, ..., 9-10)
-                var data = [0, 2, 5, 10, 18, 35, 55, 65, 30, 14];
-                var labels = ['0-1', '1-2', '2-3', '3-4', '4-5', '5-6', '6-7', '7-8', '8-9', '9-10'];
-                var max = Math.max.apply(null, data);
-                var W = canvas.width,
-                    H = canvas.height;
-                var padL = 40,
-                    padB = 30,
-                    padT = 10,
-                    padR = 10;
-                var chartW = W - padL - padR;
-                var chartH = H - padB - padT;
-                var barW = chartW / data.length;
-
-                ctx.clearRect(0, 0, W, H);
-
-                data.forEach(function (val, i) {
-                    var barH = max > 0 ? (val / max) * chartH : 0;
-                    var x = padL + i * barW + 4;
-                    var y = padT + chartH - barH;
-                    ctx.fillStyle = '#BC2626';
-                    ctx.fillRect(x, y, barW - 8, barH);
-                    ctx.fillStyle = '#333';
-                    ctx.font = '11px sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.fillText(labels[i], x + (barW - 8) / 2, H - 8);
-                    if (val > 0) {
-                        ctx.fillText(val, x + (barW - 8) / 2, y - 3);
-                    }
-                });
-
-                // Y-axis label
-                ctx.fillStyle = '#666';
-                ctx.font = '11px sans-serif';
-                ctx.textAlign = 'right';
-                ctx.fillText('SV', padL - 4, padT + 8);
-            }
-
-            // ── STUDENT RESULTS ─────────────────────────────────────────────
-
-            function initStudentResults() {
-                var dialog = document.getElementById('dialog-student-detail');
-                if (!dialog) return;
-
-                // All "Xem" buttons open the same fixed dialog (demo)
-                document.querySelectorAll('[id^="btn-detail-"]').forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        dialog.showModal();
-                    });
-                });
-
-                var btnClose = document.getElementById('btn-close-detail');
-                if (btnClose)
-                    btnClose.addEventListener('click', function () {
-                        dialog.close();
-                    });
-
-                var btnPrint = document.getElementById('btn-print-detail');
-                if (btnPrint)
-                    btnPrint.addEventListener('click', function () {
-                        window.print();
-                    });
-            }
-        </script>
+        <script src="index.js"></script>
     </body>
 </html>
