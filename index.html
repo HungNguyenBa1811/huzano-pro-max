@@ -10,10 +10,6 @@
     <body>
         <div id="app"></div>
 
-        <!-- ================================================================
-            TEMPLATES
-        ================================================================ -->
-
         <!-- ĐĂNG NHẬP -->
         <template id="tpl-login">
             <header>
@@ -470,10 +466,10 @@
 
         <!-- ADMIN SHELL -->
         <template id="tpl-admin-shell">
-            <div id="admin-wrap">
-                <nav id="admin-sidebar">
-                    <div id="sidebar-logo">HuZaLo Admin</div>
-                    <ul>
+            <div class="admin-wrap">
+                <nav class="admin-sidebar">
+                    <div class="sidebar-logo">HuZaLo Admin</div>
+                    <ul class="sidebar-nav">
                         <li data-nav="dashboard">
                             <a href="#/admin/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                         </li>
@@ -490,12 +486,12 @@
                             <a href="#/admin/student-results"><i class="fas fa-graduation-cap"></i> Kết quả SV</a>
                         </li>
                     </ul>
-                    <div id="sidebar-bottom">
+                    <div class="sidebar-bottom">
                         <a href="#/admin/login"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                     </div>
                 </nav>
-                <div id="admin-main">
-                    <header id="admin-topbar">
+                <div class="admin-main">
+                    <header class="admin-topbar">
                         <span id="topbar-title">Dashboard</span>
                         <span>Admin HuZaLo</span>
                     </header>
@@ -506,33 +502,33 @@
 
         <!-- ADMIN DASHBOARD -->
         <template id="tpl-admin-dashboard">
-            <div id="dashboard-cards">
-                <div>
+            <div class="dashboard-cards">
+                <div class="card">
                     <h4><i class="fas fa-list"></i> Tổng kỳ thi</h4>
                     <p>5</p>
                 </div>
-                <div>
+                <div class="card">
                     <h4><i class="fas fa-users"></i> Tổng sinh viên</h4>
                     <p>120</p>
                 </div>
-                <div>
+                <div class="card">
                     <h4><i class="fas fa-calendar-check"></i> Lượt thi hôm nay</h4>
                     <p>23</p>
                 </div>
-                <div>
+                <div class="card">
                     <h4><i class="fas fa-star"></i> Điểm trung bình</h4>
                     <p>7.4</p>
                 </div>
             </div>
 
-            <section>
-                <div>
+            <section class="admin-section">
+                <div class="section-header">
                     <h3>Danh sách kỳ thi</h3>
-                    <a href="#/admin/exam/new"
-                        ><button><i class="fas fa-plus"></i> Thêm kỳ thi mới</button></a
-                    >
+                    <a href="#/admin/exam/new">
+                        <button class="btn-primary"><i class="fas fa-plus"></i> Thêm kỳ thi mới</button>
+                    </a>
                 </div>
-                <table>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -550,12 +546,12 @@
                             <td>Luyện tập</td>
                             <td>10</td>
                             <td>Mở</td>
-                            <td>
-                                <a href="#/admin/exam/edit"
-                                    ><button><i class="fas fa-edit"></i> Sửa</button></a
-                                >
-                                <button><i class="fas fa-lock"></i> Đóng</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <a href="#/admin/exam/edit">
+                                    <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                </a>
+                                <button class="btn-warning"><i class="fas fa-lock"></i> Đóng</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -564,12 +560,12 @@
                             <td>Giữa kỳ</td>
                             <td>40</td>
                             <td>Mở</td>
-                            <td>
-                                <a href="#/admin/exam/edit"
-                                    ><button><i class="fas fa-edit"></i> Sửa</button></a
-                                >
-                                <button><i class="fas fa-lock"></i> Đóng</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <a href="#/admin/exam/edit">
+                                    <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                </a>
+                                <button class="btn-warning"><i class="fas fa-lock"></i> Đóng</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -578,12 +574,12 @@
                             <td>Cuối kỳ</td>
                             <td>50</td>
                             <td>Đóng</td>
-                            <td>
-                                <a href="#/admin/exam/edit"
-                                    ><button><i class="fas fa-edit"></i> Sửa</button></a
-                                >
-                                <button><i class="fas fa-lock-open"></i> Mở</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <a href="#/admin/exam/edit">
+                                    <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                </a>
+                                <button class="btn-success"><i class="fas fa-lock-open"></i> Mở</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -592,12 +588,14 @@
                             <td>Luyện tập</td>
                             <td>15</td>
                             <td>Mở</td>
-                            <td>
-                                <a href="#/admin/exam/edit"
-                                    ><button><i class="fas fa-edit"></i> Sửa</button></a
-                                >
-                                <button><i class="fas fa-lock"></i> Đóng</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <a href="#/admin/exam/edit">
+                                    <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                </a>
+                                <button class="btn-warning"><i class="fas fa-lock"></i> Đóng</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
+                            </td>
+                        </tr>
                             </td>
                         </tr>
                         <tr>
@@ -606,12 +604,12 @@
                             <td>Giữa kỳ</td>
                             <td>30</td>
                             <td>Theo lịch</td>
-                            <td>
-                                <a href="#/admin/exam/edit"
-                                    ><button><i class="fas fa-edit"></i> Sửa</button></a
-                                >
-                                <button><i class="fas fa-lock"></i> Đóng</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <a href="#/admin/exam/edit">
+                                    <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                </a>
+                                <button class="btn-warning"><i class="fas fa-lock"></i> Đóng</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                     </tbody>
@@ -621,12 +619,12 @@
 
         <!-- ADMIN QUẢN LÝ SINH VIÊN -->
         <template id="tpl-admin-users">
-            <section>
-                <div>
+            <section class="admin-section">
+                <div class="section-header">
                     <h3>Danh sách sinh viên</h3>
-                    <button><i class="fas fa-user-plus"></i> Thêm sinh viên</button>
+                    <button class="btn-primary"><i class="fas fa-user-plus"></i> Thêm sinh viên</button>
                 </div>
-                <table>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>Mã SV</th>
@@ -642,9 +640,9 @@
                             <td>Nguyễn Văn An</td>
                             <td>an.nv@student.HuZaLo.edu.vn</td>
                             <td>anvn</td>
-                            <td>
-                                <button><i class="fas fa-edit"></i> Sửa</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -652,9 +650,9 @@
                             <td>Trần Thị Bình</td>
                             <td>binh.tt@student.HuZaLo.edu.vn</td>
                             <td>binhtran</td>
-                            <td>
-                                <button><i class="fas fa-edit"></i> Sửa</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -662,9 +660,9 @@
                             <td>Lê Minh Cường</td>
                             <td>cuong.lm@student.HuZaLo.edu.vn</td>
                             <td>cuongle</td>
-                            <td>
-                                <button><i class="fas fa-edit"></i> Sửa</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -672,9 +670,9 @@
                             <td>Phạm Thu Dung</td>
                             <td>dung.pt@student.HuZaLo.edu.vn</td>
                             <td>dungpham</td>
-                            <td>
-                                <button><i class="fas fa-edit"></i> Sửa</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -682,9 +680,9 @@
                             <td>Hoàng Văn Em</td>
                             <td>em.hv@student.HuZaLo.edu.vn</td>
                             <td>emhoang</td>
-                            <td>
-                                <button><i class="fas fa-edit"></i> Sửa</button>
-                                <button><i class="fas fa-trash"></i> Xóa</button>
+                            <td class="table-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i> Sửa</button>
+                                <button class="btn-danger"><i class="fas fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
                     </tbody>
@@ -694,20 +692,20 @@
 
         <!-- ADMIN TẠO/SỬA KỲ THI -->
         <template id="tpl-admin-exam-edit">
-            <div>
+            <div class="admin-form-wrapper">
                 <h2 id="exam-form-heading">Tạo kỳ thi mới</h2>
-                <form id="form-exam-edit">
-                    <fieldset>
+                <form id="form-exam-edit" class="admin-form">
+                    <fieldset class="form-fieldset">
                         <legend>Thông tin kỳ thi</legend>
-                        <div>
+                        <div class="form-group">
                             <label>Tên kỳ thi</label>
                             <input type="text" placeholder="Nhập tên kỳ thi" />
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label>Mô tả</label>
                             <textarea rows="3" placeholder="Mô tả kỳ thi (tùy chọn)"></textarea>
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label>Loại kỳ thi</label>
                             <select>
                                 <option>Luyện tập</option>
@@ -715,130 +713,127 @@
                                 <option>Cuối kỳ</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label>Chế độ truy cập</label>
                             <select id="fe-access">
                                 <option value="open">Tự do</option>
                                 <option value="scheduled">Theo lịch</option>
                             </select>
                         </div>
-                        <div id="fe-schedule" style="display: none">
+                        <div id="fe-schedule" class="form-group form-schedule" style="display: none">
                             <label>Bắt đầu</label>
                             <input type="datetime-local" />
                             <label>Kết thúc</label>
                             <input type="datetime-local" />
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label>Thời gian làm bài (phút)</label>
                             <input type="number" value="60" min="1" />
                         </div>
                     </fieldset>
 
-                    <fieldset>
+                    <fieldset class="form-fieldset">
                         <legend>Câu hỏi</legend>
-                        <div>
-                            <button type="button" id="btn-add-q"><i class="fas fa-plus"></i> Thêm câu hỏi</button>
-                            <label>
+                        <div class="question-toolbar">
+                            <button type="button" id="btn-add-q" class="btn-primary"><i class="fas fa-plus"></i> Thêm câu hỏi</button>
+                            <label class="file-upload">
                                 <i class="fas fa-file-excel"></i> Nhập từ Excel:
                                 <input type="file" accept=".xlsx,.xls,.csv" />
                             </label>
                         </div>
 
-                        <div id="question-list">
-                            <div>
-                                <hr />
-                                <p>
-                                    <b>Câu 1</b> <button type="button"><i class="fas fa-trash"></i></button>
-                                </p>
-                                <div>
-                                    <label>Nội dung</label>
-                                    <input
-                                        type="text"
-                                        value="Giao thức nào hoạt động ở tầng Transport trong mô hình OSI?"
-                                    />
+                        <div id="question-list" class="question-list" class="question-list">
+                            <div class="question-item">
+                                <div class="question-header">
+                                    <b>Câu 1</b>
+                                    <button type="button" class="btn-icon btn-danger"><i class="fas fa-trash"></i></button>
                                 </div>
-                                <div>
+                                <div class="form-group">
+                                    <label>Nội dung</label>
+                                    <input type="text" value="Giao thức nào hoạt động ở tầng Transport trong mô hình OSI?" />
+                                </div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans1" checked /> A.</label>
                                     <input type="text" value="HTTP" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans1" /> B.</label>
                                     <input type="text" value="TCP" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans1" /> C.</label>
                                     <input type="text" value="IP" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans1" /> D.</label>
                                     <input type="text" value="ARP" />
                                 </div>
-                                <p><small>Chọn radio để đánh dấu đáp án đúng</small></p>
+                                <p class="hint"><small>Chọn radio để đánh dấu đáp án đúng</small></p>
                             </div>
 
-                            <div>
-                                <hr />
-                                <p>
-                                    <b>Câu 2</b> <button type="button"><i class="fas fa-trash"></i></button>
-                                </p>
-                                <div>
+                            <div class="question-item">
+                                <div class="question-header">
+                                    <b>Câu 2</b>
+                                    <button type="button" class="btn-icon btn-danger"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="form-group">
                                     <label>Nội dung</label>
                                     <input type="text" value="Địa chỉ IPv4 có bao nhiêu bit?" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans2" /> A.</label>
                                     <input type="text" value="16 bit" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans2" checked /> B.</label>
                                     <input type="text" value="32 bit" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans2" /> C.</label>
                                     <input type="text" value="64 bit" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans2" /> D.</label>
                                     <input type="text" value="128 bit" />
                                 </div>
-                                <p><small>Chọn radio để đánh dấu đáp án đúng</small></p>
+                                <p class="hint"><small>Chọn radio để đánh dấu đáp án đúng</small></p>
                             </div>
 
-                            <div>
-                                <hr />
-                                <p>
-                                    <b>Câu 3</b> <button type="button"><i class="fas fa-trash"></i></button>
-                                </p>
-                                <div>
+                            <div class="question-item">
+                                <div class="question-header">
+                                    <b>Câu 3</b>
+                                    <button type="button" class="btn-icon btn-danger"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="form-group">
                                     <label>Nội dung</label>
                                     <input type="text" value="DNS là viết tắt của?" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans3" /> A.</label>
                                     <input type="text" value="Data Network System" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans3" checked /> B.</label>
                                     <input type="text" value="Domain Name System" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans3" /> C.</label>
                                     <input type="text" value="Dynamic Network Service" />
                                 </div>
-                                <div>
+                                <div class="answer-row">
                                     <label><input type="radio" name="ans3" /> D.</label>
                                     <input type="text" value="Digital Name Server" />
                                 </div>
-                                <p><small>Chọn radio để đánh dấu đáp án đúng</small></p>
+                                <p class="hint"><small>Chọn radio để đánh dấu đáp án đúng</small></p>
                             </div>
                         </div>
                     </fieldset>
 
-                    <div>
-                        <button type="submit"><i class="fas fa-save"></i> Lưu kỳ thi</button>
-                        <a href="#/admin/dashboard"
-                            ><button type="button"><i class="fas fa-times"></i> Hủy</button></a
-                        >
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Lưu kỳ thi</button>
+                        <a href="#/admin/dashboard">
+                            <button type="button" class="btn-secondary"><i class="fas fa-times"></i> Hủy</button>
+                        </a>
                     </div>
                 </form>
             </div>
@@ -846,9 +841,9 @@
 
         <!-- ADMIN THỐNG KÊ -->
         <template id="tpl-admin-stats">
-            <div>
+            <div class="admin-section">
                 <h2>Thống kê</h2>
-                <div id="stats-filter">
+                <div class="stats-filter filter-wrapper">
                     <select>
                         <option value="">-- Tất cả kỳ thi --</option>
                         <option>Luyện tập Mạng máy tính</option>
@@ -858,11 +853,11 @@
                     </select>
                     <input type="date" title="Từ ngày" />
                     <input type="date" title="Đến ngày" />
-                    <button><i class="fas fa-filter"></i> Lọc</button>
-                    <button id="btn-export-stats"><i class="fas fa-file-export"></i> Xuất báo cáo</button>
+                    <button class="btn-secondary"><i class="fas fa-filter"></i> Lọc</button>
+                    <button id="btn-export-stats" class="btn-primary"><i class="fas fa-file-export"></i> Xuất báo cáo</button>
                 </div>
 
-                <table>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>Tổng lượt thi</th>
@@ -887,7 +882,7 @@
                 <canvas id="chart-scores" width="600" height="220"></canvas>
 
                 <h3>Chi tiết theo kỳ thi</h3>
-                <table>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>Kỳ thi</th>
@@ -933,13 +928,16 @@
 
         <!-- ADMIN KẾT QUẢ SINH VIÊN -->
         <template id="tpl-admin-student-results">
-            <div>
+            <div class="admin-section">
                 <h2>Kết quả sinh viên</h2>
-                <div id="student-search">
-                    <input type="text" id="inp-student-search" placeholder="Tìm theo tên hoặc mã SV..." />
-                    <button><i class="fas fa-file-export"></i> Xuất báo cáo</button>
+                <div class="filter-wrapper">
+                    <div class="search-box">
+                        <label><i class="fas fa-search"></i></label>
+                        <input type="text" id="inp-student-search" placeholder="Tìm theo tên hoặc mã SV..." />
+                    </div>
+                    <button class="btn-primary"><i class="fas fa-file-export"></i> Xuất báo cáo</button>
                 </div>
-                <table>
+                <table class="table-wrapper">
                     <thead>
                         <tr>
                             <th>Mã SV</th>
@@ -960,7 +958,7 @@
                             <td><i class="fas fa-check-circle"></i> Hoàn thành</td>
                             <td>15/03/2025 08:30</td>
                             <td>
-                                <button id="btn-detail-1"><i class="fas fa-eye"></i> Xem</button>
+                                <button id="btn-detail-1" class="btn-edit"><i class="fas fa-eye"></i> Xem</button>
                             </td>
                         </tr>
                         <tr>
@@ -971,7 +969,7 @@
                             <td><i class="fas fa-check-circle"></i> Hoàn thành</td>
                             <td>15/03/2025 08:45</td>
                             <td>
-                                <button id="btn-detail-2"><i class="fas fa-eye"></i> Xem</button>
+                                <button id="btn-detail-2" class="btn-edit"><i class="fas fa-eye"></i> Xem</button>
                             </td>
                         </tr>
                         <tr>
@@ -982,7 +980,7 @@
                             <td><i class="fas fa-times-circle"></i> Chưa hoàn thành</td>
                             <td>15/03/2025 09:00</td>
                             <td>
-                                <button id="btn-detail-3"><i class="fas fa-eye"></i> Xem</button>
+                                <button id="btn-detail-3" class="btn-edit"><i class="fas fa-eye"></i> Xem</button>
                             </td>
                         </tr>
                         <tr>
@@ -993,7 +991,7 @@
                             <td><i class="fas fa-check-circle"></i> Hoàn thành</td>
                             <td>01/04/2025 07:45</td>
                             <td>
-                                <button id="btn-detail-4"><i class="fas fa-eye"></i> Xem</button>
+                                <button id="btn-detail-4" class="btn-edit"><i class="fas fa-eye"></i> Xem</button>
                             </td>
                         </tr>
                         <tr>
@@ -1004,7 +1002,7 @@
                             <td><i class="fas fa-check-circle"></i> Hoàn thành</td>
                             <td>01/04/2025 08:10</td>
                             <td>
-                                <button id="btn-detail-5"><i class="fas fa-eye"></i> Xem</button>
+                                <button id="btn-detail-5" class="btn-edit"><i class="fas fa-eye"></i> Xem</button>
                             </td>
                         </tr>
                     </tbody>
@@ -1012,9 +1010,10 @@
 
                 <!-- Dialog chi tiết -->
                 <dialog id="dialog-student-detail">
-                    <h3>Chi tiết: Nguyễn Văn An (B21DCCN001)</h3>
-                    <p>Kỳ thi: <b>Luyện tập Mạng máy tính</b> | Điểm: <b>9.5</b></p>
-                    <table>
+                    <div class="dialog-wrapper dialog-lg">
+                        <h3>Chi tiết: Nguyễn Văn An (B21DCCN001)</h3>
+                        <p>Kỳ thi: <b>Luyện tập Mạng máy tính</b> | Điểm: <b>9.5</b></p>
+                        <table class="table-wrapper">
                         <thead>
                             <tr>
                                 <th>Câu</th>
@@ -1048,10 +1047,11 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-                        <button id="btn-print-detail"><i class="fas fa-print"></i> In kết quả</button>
-                        <button id="btn-close-detail"><i class="fas fa-times"></i> Đóng</button>
+                    <div class="dialog-actions">
+                        <button id="btn-print-detail" class="btn-secondary"><i class="fas fa-print"></i> In kết quả</button>
+                        <button id="btn-close-detail" class="btn-primary"><i class="fas fa-times"></i> Đóng</button>
                     </div>
+                </div>
                 </dialog>
             </div>
         </template>

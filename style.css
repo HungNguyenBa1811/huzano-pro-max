@@ -132,8 +132,8 @@ label {
         align-items: center;
         background-color: white;
         border: 1px solid #ddd;
-        border-radius: .5rem;
-        padding: 0 .75rem;
+        border-radius: 0.5rem;
+        padding: 0 0.75rem;
         flex: 1;
         &:focus-within {
             border-color: #bc2626;
@@ -333,4 +333,408 @@ dialog[open] {
         background-color: #eee;
         color: #333;
     }
+}
+
+/* ADMIN LAYOUT */
+
+.admin-wrap {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    width: 220px;
+    background-color: #1a1a2e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    & .sidebar-logo {
+        padding: 1.25rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        border-bottom: 1px solid #333;
+    }
+    & .sidebar-nav {
+        flex: 1;
+        list-style: none;
+        padding: 0.5rem 0;
+        & li a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: #ffffffcc;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            & i {
+                width: 1.25rem;
+                margin-right: 0.5rem;
+            }
+        }
+        & li a:hover {
+            background-color: #ffffff15;
+        }
+        & li[data-active] a {
+            background-color: #bc2626;
+            color: white;
+        }
+    }
+    & .sidebar-bottom {
+        padding: 1rem 1.25rem;
+        border-top: 1px solid #333;
+        & a {
+            color: #ffffffcc;
+            text-decoration: none;
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}
+
+.admin-main {
+    flex: 1;
+    margin-left: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-topbar {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    & span:first-child {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    & span:last-child {
+        color: #666;
+        font-size: 0.9rem;
+    }
+}
+
+#admin-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+/* ADMIN DASHBOARD CARDS */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    & .card {
+        background-color: white;
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        border-left: 4px solid #bc2626;
+        & h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.5rem;
+            & i {
+                color: #bc2626;
+                margin-right: 0.5rem;
+            }
+        }
+        & p {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #333;
+        }
+    }
+}
+
+/* ADMIN SECTION */
+.admin-section {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    & h2 {
+        margin-bottom: 1rem;
+    }
+    & h3 {
+        margin: 1.5rem 0 1rem;
+    }
+    & .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        & h3 {
+            margin: 0;
+        }
+    }
+}
+
+/* ADMIN BUTTONS */
+.btn-primary {
+    background-color: #bc2626;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    &:hover {
+        background-color: #a02020;
+    }
+}
+
+.btn-secondary {
+    background-color: #eee;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    &:hover {
+        background-color: #ddd;
+    }
+}
+
+.btn-edit {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    &:hover {
+        background-color: #1976d2;
+    }
+}
+
+.btn-warning {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    &:hover {
+        background-color: #f57c00;
+    }
+}
+
+.btn-success {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    &:hover {
+        background-color: #388e3c;
+    }
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    &:hover {
+        background-color: #d32f2f;
+    }
+}
+
+.btn-icon {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    & a {
+        text-decoration: none;
+    }
+}
+
+/* ADMIN FORM */
+.admin-form-wrapper {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    & h2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-fieldset {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    & legend {
+        padding: 0 0.5rem;
+        font-weight: 600;
+        color: #bc2626;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    & label {
+        font-weight: 500;
+    }
+    & input,
+    & select,
+    & textarea {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+        font-size: 0.95rem;
+        &:focus {
+            outline: none;
+            border-color: #bc2626;
+        }
+    }
+    & textarea {
+        resize: vertical;
+    }
+}
+
+.form-schedule {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    & input {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    & a {
+        text-decoration: none;
+    }
+}
+
+/* QUESTION LIST */
+.question-toolbar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #666;
+    & input[type='file'] {
+        width: 120px;
+    }
+}
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.question-item {
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fafafa;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.answer-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    & label {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        white-space: nowrap;
+        font-weight: 500;
+    }
+    & input[type='text'] {
+        flex: 1;
+        padding: 0.4rem 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+        &:focus {
+            outline: none;
+            border-color: #bc2626;
+        }
+    }
+}
+
+.hint {
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+/* STATS FILTER */
+.stats-filter {
+    margin-bottom: 1rem;
+    & input[type='date'] {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+    }
+}
+
+/* DIALOG LARGE */
+.dialog-lg {
+    max-width: 700px;
+    width: 90%;
+    text-align: left;
+    & h3 {
+        text-align: center;
+    }
+    & > p {
+        text-align: center;
+    }
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
