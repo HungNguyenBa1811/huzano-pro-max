@@ -421,35 +421,6 @@ dialog[open] {
     flex: 1;
 }
 
-/* ADMIN DASHBOARD CARDS */
-.dashboard-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    & .card {
-        background-color: white;
-        border-radius: 0.5rem;
-        padding: 1.25rem;
-        border-left: 4px solid #bc2626;
-        & h4 {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #666;
-            margin-bottom: 0.5rem;
-            & i {
-                color: #bc2626;
-                margin-right: 0.5rem;
-            }
-        }
-        & p {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #333;
-        }
-    }
-}
-
 /* ADMIN SECTION */
 .admin-section {
     background-color: white;
@@ -473,7 +444,7 @@ dialog[open] {
     }
 }
 
-/* ADMIN BUTTONS */
+/* ADMIN BUTTON */
 .btn-primary {
     background-color: #bc2626;
     color: white;
@@ -654,7 +625,7 @@ dialog[open] {
     cursor: pointer;
     color: #666;
     & input[type='file'] {
-        width: 120px;
+        width: 20rem;
     }
 }
 

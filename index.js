@@ -3,8 +3,7 @@ let examTimer = null;
 
 // Admin pages
 let adminRoutes = {
-    '/admin/dashboard': { tpl: 'tpl-admin-dashboard', nav: 'dashboard', title: 'Dashboard' },
-    '/admin/exams': { tpl: 'tpl-admin-dashboard', nav: 'exams', title: 'Quản lý kỳ thi' },
+    '/admin/exams': { tpl: 'tpl-admin-exams', nav: 'exams', title: 'Quản lý kỳ thi' },
     '/admin/users': { tpl: 'tpl-admin-users', nav: 'users', title: 'Quản lý sinh viên' },
     '/admin/exam/new': { tpl: 'tpl-admin-exam-edit', nav: 'exams', title: 'Tạo kỳ thi mới' },
     '/admin/exam/edit': { tpl: 'tpl-admin-exam-edit', nav: 'exams', title: 'Chỉnh sửa kỳ thi' },
@@ -83,7 +82,7 @@ function initPage(path) {
     if (path === '/admin/login') {
         document.getElementById('form-admin-login').addEventListener('submit', function (e) {
             e.preventDefault();
-            location.hash = '#/admin/dashboard';
+            location.hash = '#/admin/exams';
         });
     }
     if (path === '/exam') {
@@ -190,7 +189,7 @@ function initExamEditPage() {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Đã lưu kỳ thi! (demo)');
-            location.hash = '#/admin/dashboard';
+            location.hash = '#/admin/exams';
         });
     }
 }
