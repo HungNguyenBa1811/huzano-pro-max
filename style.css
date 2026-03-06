@@ -75,6 +75,11 @@ label {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
+    }
+    & .form-input:focus-within {
+        border-bottom: 1px solid #333;
     }
     & .form-button {
         background-color: #bc2626;
@@ -209,6 +214,7 @@ label {
         text-decoration: none;
         display: block;
         width: 8rem;
+        font-weight: 700;
     }
     & tbody tr td > a:hover {
         text-decoration: underline;
