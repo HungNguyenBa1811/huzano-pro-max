@@ -75,10 +75,14 @@ label {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+    }
+    & .form-input input[type="text"],
+    & .form-input input[type="password"] {
         border-bottom: 1px solid transparent;
         transition: all 0.2s;
     }
-    & .form-input:focus-within {
+    & .form-input input[type="text"]:focus-within,
+    & .form-input input[type="password"]:focus-within {
         border-bottom: 1px solid #333;
     }
     & .form-button {
