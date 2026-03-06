@@ -350,6 +350,9 @@ dialog[open] {
 }
 
 /* ADMIN LAYOUT */
+.admin-color {
+    background-color: #8B1A1A !important;
+}
 
 .admin-wrap {
     display: flex;
